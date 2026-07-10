@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DimVendedor_CargaInicial"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{A0CE3D65-9DDD-4E2E-BE3E-02A7E62716CB}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{D80011D6-F22A-4285-8320-F3DD91CD3E7E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAOCwnrvb9AE2TVTM6vFyURQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB3gRW5kGOt4Vy6U5UkaltdODMqeezvLhwnH3hEaObdkwAAAAAOgAAAAAIAACAAAAA25S6eG3LUZz6d1otfEj8fueBi/o/iVrbCOXuWKKbBkSAAAADG8Q0hacZ+1/MgiMcIDHkUAaK8QtntTXL3n9rqWB1yukAAAACZNL/aPIpRiYNsdW/bwOjcZnZ5IFJB9mfh5IGgRZ+FhMLuwqNJ3qsZW+q04XWlCtYR0r+e9wezVfIYKc0BLmMy</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAh8jfe6S6rUWsXxdzwI7fGQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABhIdccy4hiXDT4UclAfxKX4Y7vusXOp8LvpvSGzX3XZAAAAAAOgAAAAAIAACAAAADCkLSkCkZANcxPASWO+5RMLwO9EdnWa0lW5yDiJrKpCCAAAAC8vW/0tHmiIPyZIlVckJYY9xEomLafOBQWumxjo5A5TEAAAAD5pBL3s+QJeFO9wAtkDBFa02115UOgLQjE1CQTmsoK+XuIIztWIONPM96Rrh6S+QQ8TMdDNJLTeDeVKfrrHoyf</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAOCwnrvb9AE2TVTM6vFyURQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACJT0huc7t3hnEr8QkZ0lIx1rWP3j98MMlkqUtMSihbogAAAAAOgAAAAAIAACAAAABt15nA8sHOReM5UXgazhKqBMl0/9oUSKUpZqLca0xxkCAAAAB+fX72kDz+MUIrYlXZf+Mkft63KvkdV4WtUYy9TpdcHEAAAADxLEvi3Nj4myChtVE4GheKdeQ9iLDhpLqhQ1NQfd1i+AlreWNp01rowyyLoK3SQT5WjFHqi0m3Yl5tsSbQTyQm</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAh8jfe6S6rUWsXxdzwI7fGQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADSopkTBTMrjlclxAKEKTmRu1q4Rj/zh8OeZj0WH0gNVgAAAAAOgAAAAAIAACAAAACtMa3tWVSzUAFpBpNAhkFOzybbV7QDE7KOGvGcm0X+KiAAAAA4/IX0p/vRok7qlV7dqYwwWUZI1/SleWkMHh6EmaiRPkAAAAAxJ93J1DM+91N9Mb/GYz8pQw5+bLCzE8ow+rbwBSqxOoAApFz3vybkJnox5oucJHXf6T3/z49Q5czn8btFzlsW</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -352,7 +352,12 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select sp.BusinessEntityID as VendedorID,
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 0 as VendedorID,
+'Vendedor No Asignado' AS TipoPersona, 
+'Vendedor No Asignado' AS NombreCompleto,
+0 as Bono, 0 as PorcentajeComision
+UNION
+select sp.BusinessEntityID as VendedorID,
 CASE p.PersonType WHEN 'SC' THEN 'Store Contact'
 WHEN 'IN' THEN 'Individual (retail) customer'
 WHEN 'SP' THEN 'Sales person'
@@ -607,13 +612,13 @@ on p.BusinessEntityID=sp.BusinessEntityID</property>
           Id="Package\Llenar DimVendedor\OLE DB Destination"
           TopLeft="484,330" />
         <NodeLayout
-          Size="157,42"
-          Id="Package\Llenar DimVendedor\OLE DB Source"
-          TopLeft="309,135" />
-        <NodeLayout
           Size="161,42"
           Id="Package\Llenar DimVendedor\Data Conversion"
           TopLeft="569,159" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Llenar DimVendedor\OLE DB Source"
+          TopLeft="309,135" />
         <EdgeLayout
           Id="Package\Llenar DimVendedor.Paths[OLE DB Source Output]"
           TopLeft="466,156">
