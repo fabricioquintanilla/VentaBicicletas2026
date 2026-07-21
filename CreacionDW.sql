@@ -102,3 +102,44 @@ TotalLinea float not null,
 NumeroOrden varchar(25) not null)
 GO
 
+--crear tabla de parametros
+create table Parametros(
+ID int identity(1,1) not null primary key,
+Nombre varchar(100) not null,
+Valor varchar(500) not null)
+
+--Crear el parametro de Fecha de Ejecucion
+insert into Parametros (Nombre,Valor)values('UltimaFechaEjecucion','2026-07-18')
+
+select top 1 Valor from Parametros where Nombre='UltimaFechaEjecucion'
+
+--Crear procedimiento para Actualizar vendedor
+create or alter procedure ActualizarVendedor(@VendedorKey int, @TipoPersona varchar(100),
+@NombreCompleto varchar(100), @PorcentajeComision float, @bono float)
+AS
+begin
+
+--Lectura de los datos actuales
+declare @TipoPersonaActual varchar(100),
+		@NombreCompletoActual varchar(100),
+		@VendedorID int,
+		@PorcentajeComisionActual float,
+		@BonoActual float
+
+select @TipoPersonaActual=TipoPersona, @NombreCompletoActual=NombreCompleto,
+	@VendedorID=VendedorID, @PorcentajeComisionActual=PorcentajeComision,
+	@BonoActual=Bono from DimVendedor
+
+/*NombreCompleto y TipoPersona es SCD1
+PorcentajeComision y Bono es SCD2
+*/
+
+--SCD1
+if(@NombreCompletoActual<>@NombreCompleto or @TipoPersonaActual<>@TipoPersona)
+	UPDATE DimVendedor SET NombreCompleto=@NombreCompleto, 
+							TipoPersona=@TipoPersona
+							where VendedorKey=@VendedorKey
+
+--SCD2
+--Agregar Activo, FechaInicio, FechaFin en la tabla DimVendedor
+end

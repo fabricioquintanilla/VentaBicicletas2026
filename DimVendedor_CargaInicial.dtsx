@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DimVendedor_CargaInicial"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{D80011D6-F22A-4285-8320-F3DD91CD3E7E}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{AD739950-730D-4FE9-B453-A648D5EEBDC4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAh8jfe6S6rUWsXxdzwI7fGQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABhIdccy4hiXDT4UclAfxKX4Y7vusXOp8LvpvSGzX3XZAAAAAAOgAAAAAIAACAAAADCkLSkCkZANcxPASWO+5RMLwO9EdnWa0lW5yDiJrKpCCAAAAC8vW/0tHmiIPyZIlVckJYY9xEomLafOBQWumxjo5A5TEAAAAD5pBL3s+QJeFO9wAtkDBFa02115UOgLQjE1CQTmsoK+XuIIztWIONPM96Rrh6S+QQ8TMdDNJLTeDeVKfrrHoyf</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAh8jfe6S6rUWsXxdzwI7fGQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADXT5CCC/T5KRDc/7v9gPqZeYc6tBSdqoCPbrvzWd9xbgAAAAAOgAAAAAIAACAAAADyMBEAh0uBlzpzK9/tq/4L6xX3mANLMUPxWUwr3+DBpyAAAAA6m6SnluHklj0h4I+6JEvjgkPeurcx3JblmWdHR7k+VUAAAAB6DnfsDc4/MSrkxYKgE+PQ38E+lwZvuFXPti82d0GyrbX1aifW72uzYiEirUspX6SLb9RQDMTkKC/g/0vVfUrz</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAh8jfe6S6rUWsXxdzwI7fGQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADSopkTBTMrjlclxAKEKTmRu1q4Rj/zh8OeZj0WH0gNVgAAAAAOgAAAAAIAACAAAACtMa3tWVSzUAFpBpNAhkFOzybbV7QDE7KOGvGcm0X+KiAAAAA4/IX0p/vRok7qlV7dqYwwWUZI1/SleWkMHh6EmaiRPkAAAAAxJ93J1DM+91N9Mb/GYz8pQw5+bLCzE8ow+rbwBSqxOoAApFz3vybkJnox5oucJHXf6T3/z49Q5czn8btFzlsW</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAh8jfe6S6rUWsXxdzwI7fGQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAPGq61KAObjuiHQyAh1biComgGVlnmQ5Czx4P3bievRQAAAAAOgAAAAAIAACAAAABHjd/s0klszSWGoYV4vFb7jMKwr+2uG4IQVkJ867QCESAAAADVejBsXqeH/PohSsrYiQ8d8AGwWhGGmzpNVTt4ntlYtUAAAAByivuDxLuS3AKDPczXASA6DQ0xNRimnuPC2neJFS7rUUkg8OrWIaxG6fSZmZl2qHB+euYwzh9Dutbph65X2vtQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -618,33 +618,33 @@ on p.BusinessEntityID=sp.BusinessEntityID</property>
         <NodeLayout
           Size="157,42"
           Id="Package\Llenar DimVendedor\OLE DB Source"
-          TopLeft="309,135" />
+          TopLeft="310,135" />
         <EdgeLayout
           Id="Package\Llenar DimVendedor.Paths[OLE DB Source Output]"
-          TopLeft="466,156">
+          TopLeft="467,156">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="103,24"
+              EndConnector="102,24"
               Start="0,0"
-              End="95.5,24">
+              End="94.5,24">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="47.5,0" />
+                    End="47,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="47.5,0"
-                    Point2="51.5,0"
-                    Point3="51.5,4" />
+                    Point1="47,0"
+                    Point2="51,0"
+                    Point3="51,4" />
                   <mssgle:LineSegment
-                    End="51.5,20" />
+                    End="51,20" />
                   <mssgle:CubicBezierSegment
-                    Point1="51.5,20"
-                    Point2="51.5,24"
-                    Point3="55.5,24" />
+                    Point1="51,20"
+                    Point2="51,24"
+                    Point3="55,24" />
                   <mssgle:LineSegment
-                    End="95.5,24" />
+                    End="94.5,24" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
