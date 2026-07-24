@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{2BFA2AB3-CFB8-4CC0-9F7A-65824F800453}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{02CE851C-7EBD-4E42-AC08-E57E71CE34BC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAh8jfe6S6rUWsXxdzwI7fGQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB633CQP2YNMrkumcTy/yf8Qfr0inLykNzoEHAin4udIAAAAAAOgAAAAAIAACAAAAB+fxG7imq/M3XqrKLa+f3J5lh4J5OJkL7UG2wRmsQnFyAAAABVNJVTGh7cO/tu27cV0kwqxsnP2m9tiAwpN7BINKqwMUAAAAC8LO6lEnU9Z6Wb7kqgtgGelMSLDFmL5LMFmp/xob9ydrIIJeERRp6rdacuO3RQiwRkNa57VB+CYiB2AJ3NUe9c</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAh8jfe6S6rUWsXxdzwI7fGQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABuOdVKMMGCMwnMmDQG04DxZIUAYDWIGHk8aH6V2SU4XQAAAAAOgAAAAAIAACAAAADgokdgezmTwa9FAFbU7YW6cUJTkuLXih+GOj+bk+qT2CAAAABUUKkJcclebhIVGYNPKJb8ncKydkhIMMxTuTbwULhWRkAAAAB/UHnYXo09FR4FG0TJGrxyhaMwn6P1xxAXn57uTs6N3EeFZU8xJ5KGwle5ROrnDLLOjU5t+EZHz+FR1P+xGRbH</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +46,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAh8jfe6S6rUWsXxdzwI7fGQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC0Cx7CgYu+o7OyInx5upMdIemKavfOAI6sSAKN37doDQAAAAAOgAAAAAIAACAAAAAmqWeqXw2RkZ9AdJ8E5IkLBL1SLq+UpDH/wTdXCypduiAAAADHgM12U3/C+iNsJhJCrulVKIFWM01l17/LhxIfV+W4tEAAAACXpwUvUdwTOXh6PwZJGh8DiOkbZSRg7ZEDKy59WbX5ezMNhoXIihmRgu0VyIqs6LZt8P4Y2udcm6qDMiYjAPpe</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAh8jfe6S6rUWsXxdzwI7fGQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACJXbpSdkDlEutJLWIl9FEgF9Qdbfvm+ZwNzUcysF02OQAAAAAOgAAAAAIAACAAAAAxRgK8/2PT1wETKCzEErcgEwzYn6h2r/raChcNkAEb9SAAAAClCsr8x5bQDGvZJlXf9NPbXebqVZ+Zn8+wKrhITbadIUAAAABS97kZfMHSnLFE7who3QEjz5P/fmsxP0FlrGy6yCZ3GqEdtFx1CiN74hV+D5MGHzzaBQjsY/xwq70Fh1soXW9t</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -295,13 +295,13 @@
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimVendedor]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from DimVendedor where Activo=1</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimVendedor]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from DimVendedor where Activo=1) [refTable]
 where [refTable].[VendedorID] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -333,7 +333,7 @@ where [refTable].[VendedorID] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="VendedorKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VendedorID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TipoPersona" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="NombreCompleto" dataType="DT_STR" length="150" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="PorcentajeComision" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Bono" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="VendedorKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VendedorID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TipoPersona" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="NombreCompleto" dataType="DT_STR" length="150" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="PorcentajeComision" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Bono" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Activo" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FechaInicio" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FechaFin" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -784,12 +784,7 @@ where [refTable].[VendedorID] = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 0 as VendedorID,
-'Vendedor No Asignado' AS TipoPersona, 
-'Vendedor No Asignado' AS NombreCompleto,
-0 as Bono, 0 as PorcentajeComision
-UNION
-select sp.BusinessEntityID as VendedorID,
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select sp.BusinessEntityID as VendedorID,
 CASE p.PersonType WHEN 'SC' THEN 'Store Contact'
 WHEN 'IN' THEN 'Individual (retail) customer'
 WHEN 'SP' THEN 'Sales person'
@@ -1006,6 +1001,29 @@ where sp.ModifiedDate between
       DTS:ObjectName="Constraint"
       DTS:To="Package\Llenar DimVendedor" />
   </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnPreExecute]"
+      DTS:CreationName="OnPreExecute"
+      DTS:DTSID="{F2E00465-CB63-46E5-8D57-C6EF2AF9994D}"
+      DTS:EventID="0"
+      DTS:EventName="OnPreExecute"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{581D4BFD-2B60-454D-B9CA-E66968DB4B47}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables />
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -1021,37 +1039,37 @@ where sp.ModifiedDate between
         <NodeLayout
           Size="170,42"
           Id="Package\Execute SQL Task"
-          TopLeft="135.5,122.5" />
+          TopLeft="135.5,123.5" />
         <NodeLayout
           Size="180,42"
           Id="Package\Llenar DimVendedor"
           TopLeft="212,219" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="220.5,164.5">
+          TopLeft="220.5,165.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="81.5,54.5"
+              EndConnector="81.5,53.5"
               Start="0,0"
-              End="81.5,47">
+              End="81.5,46">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.25" />
+                    End="0,22.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.25"
-                    Point2="0,27.25"
-                    Point3="4,27.25" />
+                    Point1="0,22.75"
+                    Point2="0,26.75"
+                    Point3="4,26.75" />
                   <mssgle:LineSegment
-                    End="77.5,27.25" />
+                    End="77.5,26.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="77.5,27.25"
-                    Point2="81.5,27.25"
-                    Point3="81.5,31.25" />
+                    Point1="77.5,26.75"
+                    Point2="81.5,26.75"
+                    Point3="81.5,30.75" />
                   <mssgle:LineSegment
-                    End="81.5,47" />
+                    End="81.5,46" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1271,17 +1289,17 @@ where sp.ModifiedDate between
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[DimVendedor]</Value>
+          type="q3:string"></Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

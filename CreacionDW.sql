@@ -66,7 +66,10 @@ VendedorID int not null,
 TipoPersona varchar(50) not null,
 NombreCompleto varchar(150) not null,
 PorcentajeComision float not null,
-Bono float not null)
+Bono float not null,
+Activo bit not null default 1,
+FechaInicio datetime not null default getdate(),
+FechaFin datetime null)
 GO
 
 create table DimTerritorioVenta
@@ -111,8 +114,8 @@ Valor varchar(500) not null)
 --Crear el parametro de Fecha de Ejecucion
 insert into Parametros (Nombre,Valor)values('UltimaFechaEjecucion','2026-07-18')
 
-select top 1 Valor from Parametros where Nombre='UltimaFechaEjecucion'
-
+--select top 1 Valor from Parametros where Nombre='UltimaFechaEjecucion'
+go
 --Crear procedimiento para Actualizar vendedor
 create or alter procedure ActualizarVendedor(@VendedorKey int, @TipoPersona varchar(100),
 @NombreCompleto varchar(100), @PorcentajeComision float, @bono float)
@@ -129,6 +132,7 @@ declare @TipoPersonaActual varchar(100),
 select @TipoPersonaActual=TipoPersona, @NombreCompletoActual=NombreCompleto,
 	@VendedorID=VendedorID, @PorcentajeComisionActual=PorcentajeComision,
 	@BonoActual=Bono from DimVendedor
+	where VendedorKey=@VendedorKey
 
 /*NombreCompleto y TipoPersona es SCD1
 PorcentajeComision y Bono es SCD2
@@ -142,4 +146,18 @@ if(@NombreCompletoActual<>@NombreCompleto or @TipoPersonaActual<>@TipoPersona)
 
 --SCD2
 --Agregar Activo, FechaInicio, FechaFin en la tabla DimVendedor
+if(@BonoActual<>@bono or @PorcentajeComisionActual<>@PorcentajeComision)
+begin
+	update DimVendedor set Activo=0, FechaFin=GETDATE() where
+	VendedorKey=@VendedorKey
+
+	insert into DimVendedor(VendedorID, TipoPersona, NombreCompleto, PorcentajeComision,
+	Bono)values(@VendedorID, @TipoPersona, @NombreCompleto, @PorcentajeComision, @bono)
+
 end
+end
+/*
+VendedorID	TipoPersona	NombreCompleto	Bono	PorcentajeComision	VendedorKey	NombreCompleto_mod
+280	Sales person	Pamela O Ansman-Wolfe	5001	0.01	7	Pamela O Ansman-Wolfe
+*/
+--exec ActualizarVendedor 7,'Sales person','Pamela O Ansman-Wolfe',5001,0.01
